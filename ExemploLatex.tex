@@ -1,0 +1,52 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{logicproof}
+\usepackage{prooftrees}
+
+\title{MAC0239 - Introdução à Logica e Verificação de Programas - Exemplos \LaTeX} 
+\author{Igor de Camargo e Souza Câmara}
+\date{Setembro de 2020}
+
+\begin{document}
+
+\maketitle
+
+\section*{Dedução Natural}
+
+$p\to\lnot p \vdash \lnot p$
+
+\begin{logicproof}{1}
+    p \to \lnot p & Premissa \\
+    \begin{subproof}
+        p & Suposição \\
+        \lnot p & $\to e$ 1,2 \\
+        \bot & $\lnot e$ 2, 3
+    \end{subproof}
+    \lnot p & $\lnot i$ 2-4
+\end{logicproof}
+
+
+\section*{Árvores}
+
+\begin{forest}
+[$\to$
+    [$\land$ [$\lnot$ [$p$]] [$q$]] [$\land$ [$p$] [$\lor$
+                    [$q$] [$\lnot$ [$r$]]        ]]]
+\end{forest}
+
+\textbf{Subfórmulas}
+\begin{enumerate}
+    \item $p$ [\textit{duas vezes}]
+    \item $q$ [\textit{duas vezes}]
+    \item $(\lnot p)$
+    \item $(\lnot p) \land q$
+    \item $(\lnot r)$
+    \item $(q\lor (\lnot r))$
+    \item $(p\land (q\lor (\lnot r)))$
+    \item $(((\lnot p) \land q)\to(p\land (q\lor (\lnot r))))$
+\end{enumerate}
+
+
+\end{document}
+
